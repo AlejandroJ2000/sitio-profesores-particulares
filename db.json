@@ -1,0 +1,36 @@
+{
+    "users":[
+        {
+            "id": 1,
+            "role": "ADMIN_ROLE",
+            "name": "admin",
+            "email": "admin@admin.com",
+            "password": "admin"
+        },
+        {
+            "id": 2,
+            "role": "STUDENT_ROLE",
+            "name": "student",
+            "email": "student@student.com",
+            "password": "1234"
+        },
+        {
+            "id": 3,
+            "role": "PROFESSOR_ROLE",
+            "name": "professor",
+            "email": "professor@professor.com",
+            "password": "abcd"
+        }
+    ],
+    "appointments":[
+        {
+            "id": 1,
+            "date": "2024-07-11",
+            "time": "10:00",
+            "description": "Reserva para clase de algebra.",
+            "status": "PENDING",
+            "studentID": 2,
+            "professorID": 3
+        }
+    ]
+}
