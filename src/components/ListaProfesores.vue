@@ -1,15 +1,17 @@
 <template>
-  <div>
-    <h2>Lista de Profesores Particulares</h2>
-    <div v-if="professors.length">
-      <ul>
-        <li v-for="professor in professors" :key="professor.id">
-          <h3>{{ professor.email }}</h3>
-          <p>Especialidad: {{ professor.speciality }}</p>
-          <button @click="verDetalles(professor.id)">Ver Detalles</button>
-        </li>
-      </ul>
-    </div>
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Lista de Profesores Particulares</h2>
+    <div v-if="professors.length" class="row">
+      <div class="col-md-5 mb-4" v-for="professor in professors" :key="professor.id">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ professor.email }}</h5>
+            <p class="card-text">Especialidad: {{ professor.speciality }}</p>
+            <button class="btn btn-primary w-100" @click="verDetalles(professor.id)">Ver Detalles</button>
+          </div>
+        </div>
+      </div>
+     </div>
     <p v-else>Cargando tutores...</p>
   </div>
 </template>
@@ -46,3 +48,19 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.card {
+  border-radius: 10px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #555;
+}
+</style>

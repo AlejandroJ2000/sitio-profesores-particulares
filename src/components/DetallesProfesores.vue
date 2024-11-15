@@ -1,17 +1,22 @@
 <template>
-  <div v-if="professor">
-    <h2>Detalles de {{ professor.email }}</h2>
-    <p><strong>Materia:</strong> {{ professor.speciality }} </p>
-    <p><strong>Descripción:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
-    <button @click="mostrarFormulario = !mostrarFormulario">
-      {{ mostrarFormulario ? 'Cancelar Reserva' : 'Reservar Tutoría' }}
-    </button>
+  <div class="container my-5">
+    <div v-if="professor" class="card shadow-sm">
+      <div class="card-body">
+        <h2 class="card-title">Detalles de {{ professor.email }}</h2>
+        <p class="card-text"><strong>Materia:</strong> {{ professor.speciality }} </p>
+        <p class="card-text"><strong>Descripción:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
+        <button @click="mostrarFormulario = !mostrarFormulario"
+        class="btn btn-primary mb-3 w-100">
+        {{ mostrarFormulario ? 'Cancelar Reserva' : 'Reservar Tutoría' }}
+      </button>
     
-    <FormularioRegistro v-if="mostrarFormulario" :professorId="professor.id" />
+      <FormularioRegistro v-if="mostrarFormulario" :professorId="professor.id" />
 
-    <button @click="$router.back()">Volver</button>
-  </div>
-  <p v-else>Cargando datos del profesor...</p>
+      <button @click="$router.back()" class="btn btn-secondary w-100">Volver</button>
+      </div>
+    </div>
+    <p v-else class="text-center">Cargando datos del profesor...</p>
+ </div>
 </template>
 
 <script>
@@ -46,3 +51,31 @@ export default {
     },
 };
 </script>
+
+<style scoped>
+.container {
+  max-width: 600px;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.card-title{
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.card-text{
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.btn-primary {
+  margin-top: 1rem;
+}
+
+.btn-secondary{
+  margin-top: 0.5rem;
+}
+</style>
