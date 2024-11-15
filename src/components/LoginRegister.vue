@@ -13,6 +13,14 @@
           <label for="password" class="form-label">Contraseña</label>
           <input type="password" v-model="password" class="form-control" required />
         </div>
+        <div v-if="role==='PROFESSOR_ROLE' && !isLogin" class="mb-3">
+          <label for="role" class="form-label">Especialidad</label>
+          <select v-model="speciality" class="form-select">
+            <option v-for="speciality in specialities" :key="speciality">
+              {{ speciality }}
+            </option>
+          </select>
+        </div>
         <div v-if="!isLogin" class="mb-3">
           <label for="role" class="form-label">Rol</label>
           <select v-model="role" class="form-select">
@@ -43,6 +51,7 @@
 import axios from 'axios';
 import { API_URL } from "../constants/globalVariables";
 import { loginMock } from "../utils/loginMock";
+import { specialities } from "../constants/specialities";
 
 export default {
     data() {
@@ -50,7 +59,9 @@ export default {
             email: '',
             password: '',
             role: 'STUDENT_ROLE',
+            speciality: "",
             isLogin: true,
+            specialities,
         };
     },
     methods: {
@@ -72,7 +83,7 @@ export default {
                     return;
                 }
 
-                localStorage.setItem('user', JSON.stringyfy(loginResult.user));
+                localStorage.setItem('user', JSON.stringify(loginResult.user));
                 this.$router.push('/');
             } catch (error) {
                 console.error("Error en el inicio de sesión:", error);
@@ -80,9 +91,10 @@ export default {
         },
         async register() {
             try {
-                await axios.post('https://mockapi.io/register', {
+                await axios.post(`${API_URL}/users`, {
                     email: this.email,
                     password: this.password,
+                    speciality: this.speciality ? this.speciality : "n/s",
                     role: this.role,
                 });
                 this.isLogin = true;

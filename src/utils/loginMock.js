@@ -1,6 +1,6 @@
 export const loginMock = (users, email, password) => {
 
-    const user = users.find( user.email == email);
+    const user = users.find( (element) => element.email == email);
     if(!user) {
         return {
             ok: false,
