@@ -27,9 +27,9 @@ const routes = [
         component: DetallesProfesores,
     },
     {
-        path: '/administrador',
+        path: '/admin',
         name: 'PanelAdministrador',
-        componente: PanelAdministrador,
+        component: PanelAdministrador,
     },
 ];
 

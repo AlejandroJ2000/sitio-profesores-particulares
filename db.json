@@ -15,6 +15,13 @@
       "password": "1234"
     },
     {
+      "id": "3",
+      "email": "profesor1@student.com",
+      "password": "1234",
+      "speciality": "Psicología",
+      "role": "PROFESSOR_ROLE"
+    },
+    {
       "id": "dce7",
       "email": "profesor2@gmail.com",
       "password": "4567",
@@ -25,12 +32,27 @@
   "appointments": [
     {
       "id": "1",
+      "professorId": "3",
       "date": "2024-07-11",
       "time": "10:00",
-      "description": "Reserva para clase de algebra.",
-      "status": "PENDING",
-      "studentID": 2,
-      "professorID": 3
+      "comentarios": "abcd",
+      "studentId": "2"
+    },
+    {
+      "id": "dcdc",
+      "professorId": "dce7",
+      "date": "2024-11-20",
+      "time": "15:30",
+      "comentarios": "sasasasasa",
+      "studentId": "2"
+    },
+    {
+      "id": "5d79",
+      "professorId": "dce7",
+      "date": "2024-11-20",
+      "time": "21:46",
+      "comentarios": "asasass",
+      "studentId": "2"
     }
   ]
 }

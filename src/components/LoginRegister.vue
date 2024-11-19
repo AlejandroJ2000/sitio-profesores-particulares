@@ -52,6 +52,7 @@ import axios from 'axios';
 import { API_URL } from "../constants/globalVariables";
 import { loginMock } from "../utils/loginMock";
 import { specialities } from "../constants/specialities";
+import { toast } from "vue3-toastify";
 
 export default {
     data() {
@@ -80,11 +81,19 @@ export default {
 
                 if(!loginResult.ok){
                     console.error(loginResult.error);
+                    toast.error(loginResult.error);
                     return;
                 }
 
+                toast.success("Inicio de sesión correcto");
                 localStorage.setItem('user', JSON.stringify(loginResult.user));
-                this.$router.push('/');
+
+                if(loginResult.user.role == "ADMIN_ROLE") {
+                  this.$router.push("/admin")
+                } else {
+                  this.$router.push('/');
+                }
+                
             } catch (error) {
                 console.error("Error en el inicio de sesión:", error);
             }
