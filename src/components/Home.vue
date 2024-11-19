@@ -8,7 +8,7 @@
    <section class="container my-5">
       <div class="row">
          <div class="col-md-6">
-            <img src="https://via.placeholder.com/500x300" alt="Clases Particulares" class="img-fluid rounded shadow-sm">
+            <img src="https://media.istockphoto.com/id/1358014313/es/foto/grupo-de-estudiantes-de-primaria-que-tienen-clase-de-computaci%C3%B3n-con-su-maestro-en-el-aula.jpg?s=612x612&w=0&k=20&c=Br0JYIbTxvMufOMXLOru56BgXc4MqZvcDVHgblPLMgM=" alt="Clases Particulares" class="img-fluid rounded shadow-sm">
          </div>
          <div class="col-md-6">
             <h2>Nuestra Plataforma</h2>
